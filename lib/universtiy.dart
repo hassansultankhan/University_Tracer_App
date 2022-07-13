@@ -1,6 +1,7 @@
 class university {
-  String name;
-  //  webad, state;
+  String name
+  //  webad, state
+   ;
 
   university(
     this.name,
@@ -9,15 +10,16 @@ class university {
 
   static List<university> getuniveritydata(Map<String, dynamic> data) {
     List<university> universities = [];
-    for (final uni in data['domains']) {
-      String name = uni[0];
+    for (final uni in data['time']) {
+      String name = uni['updated'];
       // String webad = uni['']['web_pages'];
       // String state = uni['']['state-province'];
 
-      // university U = university(name
+      university U = university(name,
       // webad, state
+      );
 
-      // universities.add(U);
+      universities.add(U);
     }
     return universities;
   }
