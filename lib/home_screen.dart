@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:universitylist_app/universtiy.dart';
@@ -29,6 +30,7 @@ class _homescreenState extends State<homescreen> {
 
       body: ListView(
         
+        
        children: [
         SizedBox(height: 5,),
         ElevatedButton(onPressed: ()=>getdata(), child: Text('GET DATA'), ),
@@ -40,7 +42,35 @@ class _homescreenState extends State<homescreen> {
           itemBuilder: (context, index){
           
           return Column(
-            children: [],
+            
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+               
+             
+              child: Row( 
+                
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                
+                children:
+                [ 
+                Container(
+                width: MediaQuery.of(context).size.width,
+                child:Padding(padding:EdgeInsets.only(left: 10),
+                  child: Text('${unidata[index].name}\nState/Province: ${unidata[index].state}', textAlign: TextAlign.left,),
+                ),
+                ),
+                ]
+              ),
+               ),
+                Container(
+                  
+                              height: 5,
+                             decoration: BoxDecoration(color: Color.fromARGB(255, 200, 150, 135))
+                            ),
+            ],
+
           );
         }
         )
@@ -50,9 +80,9 @@ class _homescreenState extends State<homescreen> {
   }
 
   getdata()async{
-    var url = Uri.parse('https://api.coindesk.com/v1/bpi/currentprice.json');
+    var url = Uri.parse('http://universities.hipolabs.com/search?country=Pakistan');
     var response =await  http.get(url);
-    Map<String, dynamic> data = jsonDecode(response.body);
+    List <dynamic> data = jsonDecode(response.body);
 
   setState(() {
       unidata = university.getuniveritydata(data);
