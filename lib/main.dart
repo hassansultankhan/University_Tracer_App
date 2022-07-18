@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:universitylist_app/login.dart';
 import 'home_screen.dart';
 
 void main() {
@@ -33,5 +34,5 @@ void main() {
           // onError: Colors.grey,
         ),
       ),
-      home: homescreen()));
+      home: loginpage()));
 }

@@ -1,7 +1,10 @@
 import 'dart:convert';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:universitylist_app/detail.dart';
+import 'package:universitylist_app/login.dart';
 import 'package:universitylist_app/universtiy.dart';
 
 class homescreen extends StatefulWidget {
@@ -29,12 +32,26 @@ class _homescreenState extends State<homescreen> {
               height: 5,
             ),
             ElevatedButton(
+              
+              style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                  side: BorderSide(
+                      color: Color.fromARGB(255, 170, 194, 34), 
+                      width: 2.0,
+                  ),
+              ),
+          ),
+      ),
               onPressed: () => getdata(),
               child: Text('GET DATA'),
             ),
             SizedBox(
               height: 5,
             ),
+
+            ElevatedButton(onPressed: ()=>logout() , child: Text('LOG OUT'),),
             ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
@@ -61,7 +78,7 @@ class _homescreenState extends State<homescreen> {
                                 ),
                               ]),
                         ),
-                        onTap: () => details(),
+                        onTap: () => move(unidata[index]),
                       ),
                       Container(
                           height: 5,
@@ -83,5 +100,21 @@ class _homescreenState extends State<homescreen> {
     setState(() {
       unidata = university.getuniveritydata(data);
     });
+  }
+
+  move(university U) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => details(U)));
+  }
+
+  void logout()async{
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    await pref.clear();
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const loginpage(),), (Route<dynamic>route) => false);
+
+    // await prefs.setBool('login', false);
+    // await prefs.remove('login');
+     // prefs.clear() delete all key value pairs
+    // prefs.remove('LOGIN) delete single key value pairs
   }
 }
