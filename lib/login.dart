@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:universitylist_app/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -24,12 +25,25 @@ class _loginpageState extends State<loginpage> {
       ),
 
       body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage("assets/main background.jpg"),
+          fit: BoxFit.fitWidth,
+          
+          ),
+        ),
+        
         child: Column(
           children: [
+            // Padding(padding:EdgeInsets.only(top: 100),
             Container(
-              height: 20,
+              height: 100,
             ),
+            Text("Your ultimate guide to\nuniversities around the world", 
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, 
+            // color: Color.fromARGB(0, 123, 64, 175)
+            )),
             ElevatedButton(onPressed:()=> login(), child: Text('LOGIN'),),
+            
           ],
         ),
       ),

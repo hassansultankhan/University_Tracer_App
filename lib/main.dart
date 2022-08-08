@@ -8,30 +8,17 @@ void main() {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme(
-          primary: Color.fromARGB(255, 246, 244, 229),
-          primaryVariant: Color.fromARGB(255, 246, 244, 229),
+          primary: Color.fromARGB(255, 246, 244, 229),// for inside containers
           secondary: Color.fromARGB(255, 112, 220, 100),
-          secondaryVariant: Colors.grey,
           surface: Colors.grey,
           background: Color.fromARGB(255, 255, 255, 255),
           error: Colors.grey,
-          onPrimary: Colors.deepOrange,
+          onPrimary: Color.fromARGB(255, 105, 85, 177),
           onSecondary: Colors.grey,
           onSurface: Colors.grey,
           onBackground: Colors.grey,
           onError: Colors.grey,
           brightness: Brightness.light,
-          // brightness: Brightness.light,
-          // primary: Color.fromARGB(255, 246, 244, 229),
-          // onPrimary: Colors.deepOrange,Co
-          // secondary: Color.fromARGB(255, 112, 220, 100),
-          // onSecondary: Colors.grey,
-          // background: Color.fromARGB(255, 255, 255, 255),
-          // onBackground: Colors.grey,
-          // surface: Colors.grey,
-          // onSurface: Colors.grey,
-          // error: Colors.grey,
-          // onError: Colors.grey,
         ),
       ),
       home: loginpage()));
