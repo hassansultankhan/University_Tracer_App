@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,10 +20,14 @@ class _homescreenState extends State<homescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: const Text('Univerity Tracer'),
+          title: const Text('UNIVERSITY TRACER'),
           centerTitle: true,
-          elevation: 0,
+          elevation: 5.0,
+          // leading:
+          actions: <Widget>[IconButton(
+              onPressed: () => logout(), icon: Icon(Icons.exit_to_app_rounded),
+              iconSize: 27,padding: EdgeInsets.only(right: 10.0),),
+          ]
         ),
         body: ListView(
           children: [
@@ -32,26 +35,24 @@ class _homescreenState extends State<homescreen> {
               height: 5,
             ),
             ElevatedButton(
-              
               style: ButtonStyle(
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                  side: BorderSide(
-                      color: Color.fromARGB(255, 170, 194, 34), 
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    side: BorderSide(
+                      color: Color.fromARGB(255, 170, 194, 34),
                       width: 2.0,
+                    ),
                   ),
+                ),
               ),
-          ),
-      ),
               onPressed: () => getdata(),
               child: Text('GET DATA'),
             ),
             SizedBox(
               height: 5,
             ),
-
-            ElevatedButton(onPressed: ()=>logout() , child: Text('LOG OUT'),),
+            
             ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
@@ -107,14 +108,19 @@ class _homescreenState extends State<homescreen> {
         context, MaterialPageRoute(builder: (context) => details(U)));
   }
 
-  void logout()async{
+  void logout() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.clear();
-    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const loginpage(),), (Route<dynamic>route) => false);
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const loginpage(),
+        ),
+        (Route<dynamic> route) => false);
 
     // await prefs.setBool('login', false);
     // await prefs.remove('login');
-     // prefs.clear() delete all key value pairs
+    // prefs.clear() delete all key value pairs
     // prefs.remove('LOGIN) delete single key value pairs
   }
 }

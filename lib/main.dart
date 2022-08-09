@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:universitylist_app/List.dart';
 import 'package:universitylist_app/login.dart';
 import 'home_screen.dart';
 
@@ -8,8 +9,8 @@ void main() {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme(
-          primary: Color.fromARGB(255, 246, 244, 229),// for inside containers
-          secondary: Color.fromARGB(255, 112, 220, 100),
+          primary: Color.fromARGB(255, 215, 194, 219),// for inside containers
+          secondary: Color.fromARGB(255, 105, 85, 177),//text
           surface: Colors.grey,
           background: Color.fromARGB(255, 255, 255, 255),
           error: Colors.grey,
@@ -21,5 +22,5 @@ void main() {
           brightness: Brightness.light,
         ),
       ),
-      home: loginpage()));
+      home: countries()));
 }
