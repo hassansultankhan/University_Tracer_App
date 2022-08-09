@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:universitylist_app/login.dart';
+import 'package:universitylist_app/home_screen.dart';
 
 class countries extends StatefulWidget {
   const countries({Key? key}) : super(key: key);
   @override
   State<countries> createState() => _countriesState();
 }
-var country = "Paskitan";
+
 List countrylist = [
   "Pakistan",
   "Afghanistan",
@@ -232,6 +232,7 @@ class _countriesState extends State<countries> {
         child: ListView.builder(
           itemCount: countrylist.length,
           itemBuilder: ((context, index) => Column(
+            
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -240,9 +241,8 @@ class _countriesState extends State<countries> {
                     height: 30,
                     child: Text(countrylist[index],
                         style: CustomTextStyle.stylepointer),
-                  
                   ),
-                  onTap: () => loadCountry(country),
+                  onTap: () => loadCountry(countrylist[index]),
                   ),
                 ],
               )),
@@ -251,8 +251,8 @@ class _countriesState extends State<countries> {
     );
   }
   
-    loadCountry(String countryName){
-      Navigator.push(context, MaterialPageRoute(builder:(context) => loginpage(CountryName),))
+    loadCountry(String country){
+      Navigator.push(context, MaterialPageRoute(builder:(context) => homescreen(country),));
     }
 }
 //

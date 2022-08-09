@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:universitylist_app/List.dart';
 import 'package:universitylist_app/login.dart';
-import 'home_screen.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -22,5 +21,5 @@ void main() {
           brightness: Brightness.light,
         ),
       ),
-      home: countries()));
+      home: loginpage()));
 }

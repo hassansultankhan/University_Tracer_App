@@ -7,17 +7,26 @@ import 'package:universitylist_app/login.dart';
 import 'package:universitylist_app/universtiy.dart';
 
 class homescreen extends StatefulWidget {
-  homescreen({Key? key}) : super(key: key);
-
+  String countryName = "";
+  homescreen(this.countryName);
   @override
   State<homescreen> createState() => _homescreenState();
 }
-
 class _homescreenState extends State<homescreen> {
-  var country = "Pakistan";
+  // String? countryName;
+  // _homescreenState(this.countryName);
+  
   List<university> unidata = [];
   @override
+  void initState() {
+    getdata();
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('UNIVERSITY TRACER'),
@@ -34,21 +43,21 @@ class _homescreenState extends State<homescreen> {
             SizedBox(
               height: 5,
             ),
-            ElevatedButton(
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(
-                      color: Color.fromARGB(255, 170, 194, 34),
-                      width: 2.0,
-                    ),
-                  ),
-                ),
-              ),
-              onPressed: () => getdata(),
-              child: Text('GET DATA'),
-            ),
+            // ElevatedButton(
+            //   style: ButtonStyle(
+            //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            //       RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.circular(18.0),
+            //         side: BorderSide(
+            //           color: Color.fromARGB(255, 170, 194, 34),
+            //           width: 2.0,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            //   onPressed: () => getdata(),
+            //   child: Text('GET DATA'),
+            // ),
             SizedBox(
               height: 5,
             ),
@@ -93,8 +102,9 @@ class _homescreenState extends State<homescreen> {
   }
 
   getdata() async {
+    var countryPointer =widget.countryName.toString();
     var url =
-        Uri.parse('http://universities.hipolabs.com/search?country=Pakistan');
+        Uri.parse('http://universities.hipolabs.com/search?country=$countryPointer');
     var response = await http.get(url);
     List<dynamic> data = jsonDecode(response.body);
 

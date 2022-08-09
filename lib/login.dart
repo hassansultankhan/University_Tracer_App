@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:universitylist_app/home_screen.dart';
+import 'package:universitylist_app/List.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class loginpage extends StatefulWidget {
@@ -10,6 +10,7 @@ class loginpage extends StatefulWidget {
 }
 
 class _loginpageState extends State<loginpage> {
+  // String countryName = "Pakistan";
   @override
   void initState() {
     logincheck();
@@ -64,7 +65,7 @@ class _loginpageState extends State<loginpage> {
     Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
-          builder: (context) => homescreen(),
+          builder: (context) => countries(),
         ),
         (route) => false);
   }
@@ -76,7 +77,7 @@ class _loginpageState extends State<loginpage> {
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
-            builder: (context) => homescreen(),
+            builder: (context) => countries(),
           ),
           (route) => false);
     }
