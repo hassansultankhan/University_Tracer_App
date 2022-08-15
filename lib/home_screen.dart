@@ -13,14 +13,15 @@ class homescreen extends StatefulWidget {
   State<homescreen> createState() => _homescreenState();
 }
 class _homescreenState extends State<homescreen> {
-  // String? countryName;
-  // _homescreenState(this.countryName);
+  TextStyle listTextStyle = TextStyle(
+    fontSize: 16, fontWeight: FontWeight.w600,
+    color: Colors.purple,
+  );
   
   List<university> unidata = [];
   @override
   void initState() {
     getdata();
-    // TODO: implement initState
     super.initState();
   }
 
@@ -29,7 +30,7 @@ class _homescreenState extends State<homescreen> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('UNIVERSITY TRACER'),
+          title: const Text('Select University'),
           centerTitle: true,
           elevation: 5.0,
           // leading:
@@ -43,21 +44,6 @@ class _homescreenState extends State<homescreen> {
             SizedBox(
               height: 5,
             ),
-            // ElevatedButton(
-            //   style: ButtonStyle(
-            //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            //       RoundedRectangleBorder(
-            //         borderRadius: BorderRadius.circular(18.0),
-            //         side: BorderSide(
-            //           color: Color.fromARGB(255, 170, 194, 34),
-            //           width: 2.0,
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            //   onPressed: () => getdata(),
-            //   child: Text('GET DATA'),
-            // ),
             SizedBox(
               height: 5,
             ),
@@ -69,6 +55,9 @@ class _homescreenState extends State<homescreen> {
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
+                      Padding(padding: EdgeInsets.fromLTRB(5, 10, 0, 10),
+                      child:
+                     
                       InkWell(
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
@@ -77,23 +66,40 @@ class _homescreenState extends State<homescreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
+                                  
                                   width: MediaQuery.of(context).size.width,
+                                  alignment: Alignment.centerLeft,
                                   child: Padding(
                                     padding: EdgeInsets.only(left: 10),
-                                    child: Text(
-                                      '${unidata[index].name}\nState/Province: ${unidata[index].state}',
-                                      textAlign: TextAlign.left,
+                                    child:Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                    Text(
+                                      
+                                      '${unidata[index].name}',
+                                      style: listTextStyle, 
+                                   
+                                    ),
+                                     Text(
+                                      '${unidata[index].state}',
+                                      style: TextStyle(
+                                        fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black54),
+                                
+                                    ),
+                                    ]
                                     ),
                                   ),
                                 ),
+                                
                               ]),
                         ),
                         onTap: () => move(unidata[index]),
                       ),
-                      Container(
-                          height: 5,
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 200, 150, 135))),
+                      ),
+                     Container(
+                          height: 2,
+                          decoration: const BoxDecoration(
+                             color: Color.fromARGB(255, 119, 87, 199))),
                     ],
                   );
                 })

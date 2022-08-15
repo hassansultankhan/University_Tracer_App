@@ -218,8 +218,9 @@ class _countriesState extends State<countries> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SELECT COUNTRY"),
+        title: Text("Select Country"),
         centerTitle: true,
+        elevation: 5.0,
       ),
       body: Container(
         decoration: BoxDecoration(

@@ -1,49 +1,89 @@
 import 'package:flutter/material.dart';
 import 'package:universitylist_app/universtiy.dart';
+import 'package:universitylist_app/webview.dart';
 
-class details extends StatelessWidget {
+class details extends StatefulWidget {
   university universitydetail;
   details(this.universitydetail);
-  TextStyle detailStyle = TextStyle(fontSize: 20 , fontWeight: FontWeight.bold , color: Color.fromARGB(255, 215, 109, 27));
-   
+  @override
+  State<details> createState() => _detailsState();
+}
+
+class _detailsState extends State<details> {
+  TextStyle stylepointer = TextStyle(
+      fontSize: 17,
+      fontWeight: FontWeight.bold,
+      color: Color.fromARGB(255, 112, 33, 208));
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-
-    appBar: AppBar( 
-      title: Text('University Detail'),
-      centerTitle: true,
-    ),
-    
-    body:Container(
-
-      child: Column(
-        children: [
-          Container(height: 20,),
-          Text(universitydetail.name,style: detailStyle,),
-          Container(height: 10,),
-          Text('${universitydetail.webad}', style: detailStyle,),
-          Container(height: 10,),
-          if (universitydetail.state != null)
-          Text(universitydetail.state) 
-          else(
-            const Text('Location data not available')
-          ),
-          Container(height: 10),
-          ElevatedButton
-          (onPressed: ()=> Navigator.pop(context),
-          child: Text(
-            'Back to Main Page'
-                      ),
-          ),
-
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('University Detail'),
+        centerTitle: true,
+        elevation: 5.0,
       ),
-
-    ),
+      body: Container(
+        decoration: BoxDecoration(
+          // color: Color.fromARGB(255, 54, 28, 76),
+          image: new DecorationImage(
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+                Color.fromARGB(255, 255, 255, 255).withOpacity(0.7),
+                BlendMode.srcATop),
+            image: AssetImage("assets/hallway.jpg"),
+          ),
+        ),
+        child: Column(
+          children: [
+            Container(
+              height: 50,
+            ),
+            Text(widget.universitydetail.name, style: stylepointer),
+            Container(
+              height: 20,
+            ),
+            if (widget.universitydetail.state != null)
+              Text(widget.universitydetail.state,
+                  style: TextStyle(
+                    fontSize: 17, fontWeight: FontWeight.bold,
+                    color: Colors.black54,
+                  ))
+            else
+              (const Text('Location data not available')),
+            Container(
+              height: 20,
+            ),
+            ElevatedButton(
+              child: Text(
+                'Weblink -> ${widget.universitydetail.webad}',
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.deepPurple),
+                textAlign: TextAlign.center,
+              ),
+              onPressed: () => openWebView(
+                  widget.universitydetail.webad, widget.universitydetail.name),
+            ),
+            Container(height: 10),
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text("Explore other Universities"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
+  openWebView(dynamic websiteAddress, String uniname) {
+    String webAdTostring = websiteAddress.toString();
+    int length = webAdTostring.length;
+    String trimmedAdress = webAdTostring.substring(1, length - 1);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: ((context) => webview_widget(trimmedAdress, uniname))));
   }
-
+}

@@ -36,6 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.4
   shared_preferences: ^2.0.15
+  connection_status_bar: ^1.1.6
+  webview_flutter: ^3.0.4
+  path_provider: ^2.0.11
+  sqflite: ^2.0.3+1
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +67,7 @@ flutter:
   assets:
     - assets/main background.jpg
     - assets/countries back ground.jpg
+    - assets/hallway.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
