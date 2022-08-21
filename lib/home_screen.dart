@@ -35,7 +35,7 @@ class _homescreenState extends State<homescreen> {
           elevation: 5.0,
           // leading:
           actions: <Widget>[IconButton(
-              onPressed: () => logout(), icon: Icon(Icons.exit_to_app_rounded),
+              onPressed: () => logout(), icon: Icon(Icons.logout_rounded),
               iconSize: 27,padding: EdgeInsets.only(right: 10.0),),
           ]
         ),

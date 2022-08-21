@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:universitylist_app/login.dart';
 import 'package:universitylist_app/universtiy.dart';
 import 'package:universitylist_app/webview.dart';
 
@@ -22,6 +24,12 @@ class _detailsState extends State<details> {
         title: Text('University Detail'),
         centerTitle: true,
         elevation: 5.0,
+
+         actions: <Widget>[IconButton(
+              onPressed: () => logout(), icon: Icon(Icons.logout_rounded),
+              iconSize: 27,padding: EdgeInsets.only(right: 10.0),),
+          ]
+
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -86,4 +94,15 @@ class _detailsState extends State<details> {
         MaterialPageRoute(
             builder: ((context) => webview_widget(trimmedAdress, uniname))));
   }
+
+  void logout() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    await pref.clear();
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const loginpage(),
+        ),
+        (Route<dynamic> route) => false);
+}
 }
