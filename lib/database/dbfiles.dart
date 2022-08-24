@@ -26,7 +26,10 @@ class Dbfiles{
     await db.execute(
         "Create table universities("
             "id integer primary key, "
-            "name text,)");
+            "name text, "
+            "webadress text)"
+            );
+     
   }
 
   Future<List> getuniversities() async {
@@ -39,7 +42,7 @@ class Dbfiles{
 
   Future<int> insert(likedUniversity likeduniversity) async{
     Database db = await this.db; 
-    var result = await db.update("university", likeduniversity.toKeyValue());
+    var result = await db.insert("universities", likeduniversity.toKeyValue());
     return result;
   }
 

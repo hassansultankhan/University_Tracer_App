@@ -18,12 +18,13 @@ class _homescreenState extends State<homescreen> {
     color: Colors.purple,
   );
   
-  List<university> unidata = [];
+  
   @override
   void initState() {
     getdata();
     super.initState();
   }
+  List<university> unidata = [];
 
   @override
   Widget build(BuildContext context) {
@@ -113,10 +114,11 @@ class _homescreenState extends State<homescreen> {
         Uri.parse('http://universities.hipolabs.com/search?country=$countryPointer');
     var response = await http.get(url);
     List<dynamic> data = jsonDecode(response.body);
-
+    if(mounted){
     setState(() {
       unidata = university.getuniveritydata(data);
     });
+    }
   }
 
   move(university U) {

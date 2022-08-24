@@ -2,7 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 
 
-void click(String? Uniname, BuildContext c) {
+void click(String Uniname, BuildContext c) {
    
   AwesomeDialog(
     context: c,
