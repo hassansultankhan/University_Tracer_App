@@ -3,15 +3,17 @@ import 'dart:math';
 class likedUniversity{
   int id = 0;
   String name = "";
-  String webAdress = "";
+  String url = "";
 
-  likedUniversity(this.name, this.webAdress);
+  likedUniversity(this.name, this.url);
   likedUniversity.withId({required this.id, required  this.name});
+
+  
 
   Map<String, dynamic> toKeyValue(){
     var map = Map<String, dynamic>();
     map["name"]= name;
-    map["webadress"]=webAdress;
+    map["webAdress"]=url;
     if (id != null){
       map["id"]= Random().nextInt(10000);  
     }

@@ -9,7 +9,7 @@ void click(String Uniname, BuildContext c) {
     dialogType: DialogType.INFO,
     animType: AnimType.SCALE,
     dialogBackgroundColor: Colors.white70,
-    title: '$Uniname',
+    title: 'SELECTION LIST UPDATED',
     desc: '${Uniname} has been added to list',
     descTextStyle: TextStyle(fontSize: 15),
     btnOkOnPress: () {},

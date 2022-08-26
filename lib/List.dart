@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:universitylist_app/home_screen.dart';
 
+import 'database/sortedUniversities.dart';
+
 class countries extends StatefulWidget {
   const countries({Key? key}) : super(key: key);
   @override
@@ -221,6 +223,19 @@ class _countriesState extends State<countries> {
         title: Text("Select Country"),
         centerTitle: true,
         elevation: 5.0,
+        actions: <Widget>[
+          IconButton(onPressed:(){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => sortedUniversities(),));
+          }, 
+          icon: Icon(
+            Icons.playlist_add_check,
+             color: Colors.blue,
+            ),
+            iconSize: 30,
+            padding: EdgeInsets.only(
+          ) 
+          ),
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(

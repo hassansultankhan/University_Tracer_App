@@ -27,7 +27,7 @@ class Dbfiles{
         "Create table universities("
             "id integer primary key, "
             "name text, "
-            "webadress text)"
+            "webAdress text)"
             );
      
   }
@@ -48,7 +48,7 @@ class Dbfiles{
 
   Future<int> delete (int id) async{
     Database db = await this.db;
-    var result = await db.rawDelete("delete from products where id = $id");
+    var result = await db.rawDelete("delete from universities where id = $id");
     return result;
   }
     }

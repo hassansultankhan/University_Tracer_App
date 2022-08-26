@@ -37,7 +37,7 @@ class _webview_widgetState extends State<webview_widget> {
               Icons.playlist_add,
               color: Colors.blue,
             ),
-            iconSize: 27,
+            iconSize: 30,
             padding: EdgeInsets.only(
               // right: 10,
             ),
@@ -49,7 +49,7 @@ class _webview_widgetState extends State<webview_widget> {
             Icons.playlist_add_check,
              color: Colors.blue,
             ),
-            iconSize: 27,
+            iconSize: 30,
             padding: EdgeInsets.only(
           ) 
           ),
