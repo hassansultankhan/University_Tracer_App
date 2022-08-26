@@ -83,6 +83,10 @@ class _homescreenState extends State<homescreen> {
                                     ),
                                      Text(
                                       '${unidata[index].state}',
+
+
+
+                                      
                                       style: TextStyle(
                                         fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black54),
                                 

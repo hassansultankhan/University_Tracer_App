@@ -42,7 +42,7 @@ class _sortedUniversitiesState extends State<sortedUniversities> {
           return Card(
             child: ListTile(
               title: Text(this.UniversityList[countNumber].name,style: TextStyle(color: Colors.black),),
-              subtitle: Text(this.UniversityList[countNumber].webadress,style: TextStyle(color: Colors.black),),
+              subtitle: Text(this.UniversityList[countNumber].webAdress +" Serial:"+ this.UniversityList[countNumber].id.toString(), style: TextStyle(color: Colors.black),),
             ),
 
           );

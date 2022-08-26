@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:universitylist_app/List.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'database/sortedUniversities.dart';
+
 class loginpage extends StatefulWidget {
   const loginpage();
 
@@ -24,6 +26,19 @@ class _loginpageState extends State<loginpage> {
         title: Text('UNIVERSITY TRACER'),
         centerTitle: true,
         elevation: 5.0,
+        actions: <Widget>[
+          IconButton(onPressed:(){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => sortedUniversities(),));
+          }, 
+          icon: Icon(
+            Icons.playlist_add_check,
+             color: Colors.blue,
+            ),
+            iconSize: 27,
+            padding: EdgeInsets.only(
+          ) 
+          ),
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(
