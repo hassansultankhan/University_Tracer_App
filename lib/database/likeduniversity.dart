@@ -13,7 +13,7 @@ class likedUniversity{
   Map<String, dynamic> toKeyValue(){
     var map = Map<String, dynamic>();
     map["name"]= name;
-    map["webAdress"]=url;
+    map["url"]=url;
     if (id != null){
       map["id"]= Random().nextInt(10000);  
     }

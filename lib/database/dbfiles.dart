@@ -24,11 +24,11 @@ class Dbfiles{
   }
   FutureOr<void> createTable(Database db, int version) async {
     await db.execute(
-        "Create table universities("
-            "id integer primary key, "
-            "name text, "
-            "webAdress text)"
-            );
+        '''Create table universities(
+            id integer primary key, 
+            name text, 
+            url text)
+            ''');
      
   }
 

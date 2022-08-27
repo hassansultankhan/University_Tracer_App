@@ -70,10 +70,11 @@ class _sortedUniversitiesState extends State<sortedUniversities> {
     }
     remove(int count)async{
       await dbfiles.delete(count);
+      getdata();
 
 
       // needs to be fixed
-      Navigator.of(context).push(new MaterialPageRoute(builder: (context) => sortedUniversities()));
+      
       
     }
 }
