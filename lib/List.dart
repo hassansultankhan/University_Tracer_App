@@ -240,7 +240,7 @@ class _countriesState extends State<countries> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/countries back ground.jpg"),
+            image: AssetImage("assets/countries back ground.png"),
             fit: BoxFit.fitWidth,
           ),
         ),

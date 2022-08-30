@@ -68,6 +68,7 @@ flutter:
   assets:
     - assets/main background.jpg
     - assets/countries back ground.jpg
+    - assets/countries back ground.png
     - assets/hallway.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see

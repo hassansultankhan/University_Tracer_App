@@ -23,5 +23,6 @@ class likedUniversity{
   likedUniversity.fromKeyValue(dynamic uni){
     this.id = int.parse(uni["id"].toString());
     this.name = uni["name"];
+    this.url = uni["url"];
   }
 }
