@@ -34,7 +34,7 @@ class _loginpageState extends State<loginpage> {
             Icons.playlist_add_check,
              color: Colors.blue,
             ),
-            iconSize: 27,
+            iconSize: 35,
             padding: EdgeInsets.only(
           ) 
           ),

@@ -27,9 +27,7 @@ class _homescreenState extends State<homescreen> {
     getdata();
     super.initState();
   }
-
   List<university> unidata = [];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,14 +35,9 @@ class _homescreenState extends State<homescreen> {
           title: const Text('Select University'),
           centerTitle: true,
           elevation: 5.0,
-          // leading:
+    
           actions: <Widget>[
-            // IconButton(
-            //   onPressed: () => logout(),
-            //   icon: Icon(Icons.logout_rounded),
-            //   iconSize: 27,
-            //   padding: EdgeInsets.only(right: 10.0),
-            // ),
+       
             IconButton(
                 onPressed: () {
                   Navigator.push(

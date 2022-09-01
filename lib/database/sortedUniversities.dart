@@ -50,6 +50,7 @@ class _sortedUniversitiesState extends State<sortedUniversities> {
 
   ListView buildUniversityList() {
     return ListView.builder(
+
         padding: EdgeInsets.only(top: 15),
         itemCount: universityCount,
         itemBuilder: (BuildContext context, int countNumber) {
