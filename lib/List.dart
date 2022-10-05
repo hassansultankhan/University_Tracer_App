@@ -225,7 +225,8 @@ class _countriesState extends State<countries> {
         elevation: 5.0,
         actions: <Widget>[
           IconButton(onPressed:(){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => sortedUniversities(),));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => 
+            sortedUniversities(),));
           }, 
           icon: Icon(
             Icons.playlist_add_check,

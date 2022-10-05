@@ -113,6 +113,5 @@ class _sortedUniversitiesState extends State<sortedUniversities> {
     await dbfiles.delete(count);
     getdata();
 
-    // needs to be fixed
   }
 }

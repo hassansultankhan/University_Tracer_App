@@ -135,7 +135,7 @@ class _homescreenState extends State<homescreen> {
         context, MaterialPageRoute(builder: (context) => details(U)));
   }
 
-  void logout() async {
+   void logout() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.clear();
     Navigator.pushAndRemoveUntil(

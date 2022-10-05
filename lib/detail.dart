@@ -33,7 +33,7 @@ class _detailsState extends State<details> {
       ),
       body: Container(
         decoration: BoxDecoration(
-          // color: Color.fromARGB(255, 54, 28, 76),
+          color: Color.fromARGB(255, 54, 28, 76),
           image: new DecorationImage(
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(

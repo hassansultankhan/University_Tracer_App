@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:universitylist_app/List.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'database/sortedUniversities.dart';
 
 class loginpage extends StatefulWidget {

@@ -1,4 +1,4 @@
-package com.example.universitylist_app
+package com.luxonstudios.university_tracer
 
 import io.flutter.embedding.android.FlutterActivity
 
