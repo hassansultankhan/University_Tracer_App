@@ -21,11 +21,13 @@ class _homescreenState extends State<homescreen> {
     fontWeight: FontWeight.w600,
     color: Colors.purple,
   );
+  bool loading = true;
 
   @override
   void initState() {
     getdata();
     super.initState();
+    loading = false;
   }
   List<university> unidata = [];
   @override
@@ -54,14 +56,23 @@ class _homescreenState extends State<homescreen> {
                 padding: EdgeInsets.only()),
           ],
         ),
-        body: ListView(
+        body: Container(
+          child: Column(
           children: [
             SizedBox(
-              height: 5,
+              height: 10,
             ),
-            SizedBox(
-              height: 5,
+            Expanded(child: loading == false ? 
+            Center( child: Container(height: 100, width: 100,
+            child: CircularProgressIndicator(
+            color: Colors.purpleAccent[300],
+            strokeWidth: 10,
             ),
+            ),)
+
+            // OR
+            :
+            
             ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
@@ -113,8 +124,11 @@ class _homescreenState extends State<homescreen> {
                     ],
                   );
                 })
+            ),
           ],
-        ));
+        )
+        ),
+        );
   }
 
   getdata() async {
@@ -125,7 +139,10 @@ class _homescreenState extends State<homescreen> {
     List<dynamic> data = jsonDecode(response.body);
     if (mounted) {
       setState(() {
+
         unidata = university.getuniveritydata(data);
+        loading = true;
+
       });
     }
   }
